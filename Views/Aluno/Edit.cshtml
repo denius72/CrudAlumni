@@ -1,0 +1,153 @@
+﻿@model CrudAlumni.Models.Aluno
+
+@{
+    ViewData["Title"] = "Edit";
+    var series = Enum.GetValues(typeof(CrudAlumni.Models.Serie)).Cast<CrudAlumni.Models.Serie>().ToList();
+}
+
+<h1>Edit</h1>
+
+<h4>Aluno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoEndereco" class="control-label"></label>
+                <select asp-for="TipoEndereco" class="form-control" asp-items="Html.GetEnumSelectList<CrudAlumni.Models.TipoEndereco>()">
+                    <option value="">Selecione</option>
+                </select>
+                <span asp-validation-for="TipoEndereco" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Rua" class="control-label"></label>
+                <input asp-for="Rua" class="form-control" />
+                <span asp-validation-for="Rua" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" class="form-control" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Complemento" class="control-label"></label>
+                <input asp-for="Complemento" class="form-control" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Serie" class="control-label"></label>
+                <select asp-for="Serie" class="form-control" id="serieSelect">
+                    <option value="">Selecione</option>
+                    @foreach (var serie in series)
+                    {
+                        <option value="@serie" selected="@(Model.Serie == serie ? "selected" : null)">
+                            @serie
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="Serie" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Segmento" class="control-label"></label>
+                <input asp-for="Segmento" class="form-control" id="segmentoInput" readonly />
+                <span asp-validation-for="Segmento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NomePai" class="control-label"></label>
+                <input asp-for="NomePai" class="form-control" />
+                <span asp-validation-for="NomePai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NomeMae" class="control-label"></label>
+                <input asp-for="NomeMae" class="form-control" />
+                <span asp-validation-for="NomeMae" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        const segmentoInput = document.getElementById('segmentoInput');
+        const serieSelect = document.getElementById('serieSelect');
+
+        function atualizarSegmento(serie) {
+            let segmento = '';
+
+            switch (serie) {
+                case 'G1':
+                case 'G2':
+                case 'G3':
+                    segmento = 'Infantil';
+                    break;
+                case 'PrimeiroAno':
+                case 'SegundoAno':
+                case 'TerceiroAno':
+                case 'QuartoAno':
+                case 'QuintoAno':
+                    segmento = 'Anos iniciais';
+                    break;
+                case 'SextoAno':
+                case 'SetimoAno':
+                case 'OitavoAno':
+                case 'NonoAno':
+                    segmento = 'Anos finais';
+                    break;
+                case 'PrimeiroAnoEnsinoMedio':
+                case 'SegundoAnoEnsinoMedio':
+                case 'TerceiroAnoEnsinoMedio':
+                    segmento = 'Ensino Médio';
+                    break;
+            }
+
+            segmentoInput.value = segmento;
+        }
+
+        serieSelect.addEventListener('change', function () {
+            atualizarSegmento(this.value);
+        });
+
+        window.addEventListener('DOMContentLoaded', function () {
+            atualizarSegmento(serieSelect.value);
+        });
+    </script>
+}
