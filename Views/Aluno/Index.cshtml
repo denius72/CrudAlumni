@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
@@ -49,47 +52,51 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoEndereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CEP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Complemento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Serie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Segmento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomePai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeMae)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Matricula">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Matricula">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Matricula">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoEndereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CEP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complemento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Segmento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomePai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeMae)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Matricula">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Matricula">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Matricula">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
