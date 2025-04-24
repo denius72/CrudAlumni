@@ -32,12 +32,12 @@ namespace CrudAlumni.Models
         [Required(ErrorMessage = "O número é obrigatório")]
         public string Numero { get; set; }
 
-        public string? Complemento { get; set; } // Pode ser null
+        public string? Complemento { get; set; } // pode ser null
 
         [Required(ErrorMessage = "A série é obrigatória")]
-        public Serie Serie { get; set; }
+        public Serie Serie { get; set; } 
 
-        [Required(ErrorMessage = "O segmento é obrigatório")]
+        [Required(ErrorMessage = "O segmento é obrigatório")] // preenchido automaticamente
         public string Segmento { get; set; }
 
         [Required(ErrorMessage = "O nome do pai é obrigatório")]
@@ -50,20 +50,20 @@ namespace CrudAlumni.Models
         private static readonly Dictionary<Serie, (int MinIdade, int MaxIdade)> FaixaEtariaPorSerie = new Dictionary<Serie, (int, int)>
         {
             { Serie.G1, (3, 5) },
-            { Serie.G2, (4, 5) },
-            { Serie.G3, (5, 5) },
-            { Serie.PrimeiroAno, (6, 7) },
-            { Serie.SegundoAno, (7, 8) },
-            { Serie.TerceiroAno, (8, 9) },
-            { Serie.QuartoAno, (9, 10) },
-            { Serie.QuintoAno, (10, 11) },
-            { Serie.SextoAno, (11, 12) },
-            { Serie.SetimoAno, (12, 13) },
-            { Serie.OitavoAno, (13, 14) },
-            { Serie.NonoAno, (14, 15) },
-            { Serie.PrimeiroAnoEnsinoMedio, (15, 16) },
-            { Serie.SegundoAnoEnsinoMedio, (16, 17) },
-            { Serie.TerceiroAnoEnsinoMedio, (17, 17) }
+            { Serie.G2, (3, 5) },
+            { Serie.G3, (3, 5) },
+            { Serie.PrimeiroAno, (6, 10) },
+            { Serie.SegundoAno, (6, 10) },
+            { Serie.TerceiroAno, (6, 10) },
+            { Serie.QuartoAno, (6, 10) },
+            { Serie.QuintoAno, (6, 10) },
+            { Serie.SextoAno, (11, 14) },
+            { Serie.SetimoAno, (11, 14) },
+            { Serie.OitavoAno, (11, 14) },
+            { Serie.NonoAno, (11, 14) },
+            { Serie.PrimeiroAnoEnsinoMedio, (15, 17) },
+            { Serie.SegundoAnoEnsinoMedio, (15, 17) },
+            { Serie.TerceiroAnoEnsinoMedio, (15, 17) }
         };
 
         public bool ValidarIdade()
