@@ -32,7 +32,7 @@ namespace CrudAlumni.Models
         [Required(ErrorMessage = "O número é obrigatório")]
         public string Numero { get; set; }
 
-        public string? Complemento { get; set; }
+        public string? Complemento { get; set; } // Pode ser null
 
         [Required(ErrorMessage = "A série é obrigatória")]
         public Serie Serie { get; set; }
