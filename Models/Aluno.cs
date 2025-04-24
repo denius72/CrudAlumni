@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 namespace CrudAlumni.Models
 {
@@ -30,7 +32,7 @@ namespace CrudAlumni.Models
         [Required(ErrorMessage = "O número é obrigatório")]
         public string Numero { get; set; }
 
-        public string Complemento { get; set; }
+        public string? Complemento { get; set; }
 
         [Required(ErrorMessage = "A série é obrigatória")]
         public Serie Serie { get; set; }
@@ -38,8 +40,10 @@ namespace CrudAlumni.Models
         [Required(ErrorMessage = "O segmento é obrigatório")]
         public string Segmento { get; set; }
 
+        [Required(ErrorMessage = "O nome do pai é obrigatório")]
         public string NomePai { get; set; }
 
+        [Required(ErrorMessage = "O nome da mãe é obrigatório")]
         public string NomeMae { get; set; }
 
         // Dicionário de faixa etária
