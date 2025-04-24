@@ -12,7 +12,8 @@ namespace CrudAlumni.Models
         public int Matricula { get; set; }  // Gerado automaticamente como ID
 
         [Required(ErrorMessage = "O nome é obrigatório")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres")]
+        [RegularExpression(@"^[a-zA-ZàáèéìíòóùúãõçÇ\s]*$", ErrorMessage = "O nome deve conter apenas letras e espaços.")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
@@ -23,6 +24,8 @@ namespace CrudAlumni.Models
         public string TipoEndereco { get; set; }  // Cobrança, Residencial, Correspondência
 
         [Required(ErrorMessage = "A rua é obrigatória")]
+        [StringLength(100, ErrorMessage = "O nome da rua deve ter no máximo 100 caracteres")]
+        [RegularExpression(@"^[a-zA-ZàáèéìíòóùúãõçÇ0-9\s,.-]*$", ErrorMessage = "A rua deve conter apenas letras, números e espaços.")]
         public string Rua { get; set; }
 
         [Required(ErrorMessage = "O CEP é obrigatório")]
@@ -30,8 +33,12 @@ namespace CrudAlumni.Models
         public string CEP { get; set; }
 
         [Required(ErrorMessage = "O número é obrigatório")]
+        [StringLength(8, ErrorMessage = "O número deve ter no máximo 8 caracteres")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "O número deve conter apenas dígitos")]
         public string Numero { get; set; }
 
+        [StringLength(50, ErrorMessage = "O complemento deve ter no máximo 50 caracteres")]
+        [RegularExpression(@"^[a-zA-ZàáèéìíòóùúãõçÇ0-9\s,.-]*$", ErrorMessage = "O complemento deve conter apenas letras, números, espaços ou traços.")]
         public string? Complemento { get; set; } // pode ser null
 
         [Required(ErrorMessage = "A série é obrigatória")]
@@ -41,9 +48,13 @@ namespace CrudAlumni.Models
         public string Segmento { get; set; }
 
         [Required(ErrorMessage = "O nome do pai é obrigatório")]
+        [StringLength(100, ErrorMessage = "O nome do pai deve ter no máximo 100 caracteres")]
+        [RegularExpression(@"^[a-zA-ZàáèéìíòóùúãõçÇ\s]*$", ErrorMessage = "O nome do pai deve conter apenas letras e espaços.")]
         public string NomePai { get; set; }
 
         [Required(ErrorMessage = "O nome da mãe é obrigatório")]
+        [StringLength(100, ErrorMessage = "O nome da mãe deve ter no máximo 100 caracteres")]
+        [RegularExpression(@"^[a-zA-ZàáèéìíòóùúãõçÇ\s]*$", ErrorMessage = "O nome da mãe  deve conter apenas letras e espaços.")]
         public string NomeMae { get; set; }
 
         // Dicionário de faixa etária
