@@ -6,8 +6,8 @@ Desenvolvedor Full-Stack | Analista de Sistemas
 📧 Email: denius72@gmail.com
 📞 Telefone: (41) 99912-3355
 
-💼 LinkedIn: [denius72]([https://linkedin.com/in/seuuser](https://www.linkedin.com/in/denius72/))  
-🐱 GitHub: [denius72]([https://github.com/seu-user](https://github.com/denius72))  
+💼 LinkedIn: [denius72](https://www.linkedin.com/in/denius72/)
+🐱 GitHub: [denius72](https://github.com/denius72) 
 
 ---
 
