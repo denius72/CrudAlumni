@@ -46,3 +46,46 @@ Pontifícia Universidade Católica do Paraná, 2018 - 2021
 ---
 
 # Como executar este projeto
+
+## 1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-user/CrudAlumni.git
+```
+
+## 2. **Abra o projeto no Visual Studio 2022 ou superior**
+- Obs: requer SDK .NET 8.0 na sua máquina.
+
+
+---
+
+
+# Preparando o banco de dados
+
+## 1. **Gerar automaticamente com Entity Framework**
+No Console do Gerenciador de Pacotes:
+
+```powershell
+Update-Database
+```
+Ou via CLI:
+
+```bash
+dotnet ef database update
+```
+Isso criará as tabelas baseadas no modelo Aluno.cs.
+
+
+## 2. **Consultas SQL e base de dados**
+
+O arquivo:
+```pgsql
+/Database/selects_consultas.sql
+```
+Contém as 5 consultas solicitadas no teste técnico.
+
+O arquivo:
+```pgsql
+/Database/inserts_alunos.sql
+```
+Contém exemplos de dados para serem utilizados durante o teste.
