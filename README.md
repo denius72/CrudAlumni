@@ -89,3 +89,13 @@ O arquivo:
 /Database/inserts_alunos.sql
 ```
 Contém exemplos de dados para serem utilizados durante o teste.
+
+## 3. **Utilizando o sistema**
+
+Após estiver rodando o software, pelo navegador, acesse:
+```pgsql
+localhost:xxxx/aluno/
+```
+Obs: onde xxx é a porta atribuída pelo sistema.
+
+Esse é o ponto de entrada principal para utilizar o CRUD de alunos pela interface web gerada com ASP.NET
